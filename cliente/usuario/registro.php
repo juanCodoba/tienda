@@ -2,7 +2,7 @@
 if (!isset($_POST['nombre']) || !isset($_POST['apellido']) || !isset($_POST['email']) || !isset($_POST['clave']))
  exit();
 			# code...
-	require_once "../conexion.php";
+	require_once "../../conexion.php";
 	$nombre = $_POST["nombre"];
 	$apellido = $_POST["apellido"];
 	$email = $_POST["email"];
@@ -14,8 +14,9 @@ if (!isset($_POST['nombre']) || !isset($_POST['apellido']) || !isset($_POST['ema
 	$resultado = $sentencia->execute([$nombre, $apellido, $email, $clave,$rol]);
 
 	if($resultado === TRUE) {
-        for ($i = 5; $i >= 1; $i--) {
+        for ($i = 3; $i >= 1; $i--) {
             sleep(1); 
+			include("../../componentes/alert.html");
         }
         
         header("Location:/producto/login.php");

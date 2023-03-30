@@ -1,8 +1,7 @@
-body{
-    background: url(img/basketball-1081882_1920.jpg) no-repeat center center fixed;
-    background-size: cover;
+@font-face {
+    font-family: Multicolore;
+    src: url(../fonts/Multicolore.ttf);
 }
-
 .main-section{
     margin:0 auto;
     margin-top:25%;
@@ -47,12 +46,4 @@ body{
 button{
     width: 60%;
     margin: 5px 0 25px;
-}
-
-.forgot{
-    padding: 5px 0;
-}
-
-.forgot a{
-    color: white;
 }

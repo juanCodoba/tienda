@@ -5,20 +5,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/signup.css">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Registrate</title>
 </head>
 
-<body>
-  <div class="container-fluid">
+<body class="body">
+  <div class="container-fluid col-sm-8 main-section">
     <div class="row">
       <div class="col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-12">
-        <h1 class="title">Registro nuevo cliente</h1>
+        <h1 class="title">Nuevo Registro</h1>
       </div>
     </div>
     <div class="row  justify-content-around">
       <div class=" col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-6 white-background">
-        <form action="cliente/registro.php" method="post">
+        <form action="cliente/usuario/registro.php" method="post">
 
           <div class="form-group">
             <label for="exampleInputEmail1">Nombre</label>
@@ -41,26 +42,6 @@
 
         </form>
         
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-          <div class="modal-dialog" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                ...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-          </div>
-        </div>
 </body>
 <script type="text/javascript" src="js/jquery-3.3.1.slim.min.js"></script>
 <script type="text/javascript" src="js/popper.min.js"></script>

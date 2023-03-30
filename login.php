@@ -9,16 +9,17 @@
   $result= $pdo->prepare($query);
   $result->execute();
   $result2 = $result->fetchAll(PDO::FETCH_ASSOC);
+
   //var_dump($result2);
   if ($result->rowCount()>=1) {
-    $_SESSION['ingreso']='Hello madafacka';
+    $_SESSION['ingreso']='Hello';
     switch ($result2[0]['rol_id_rol']) {
       case '1':
-        header("Location:admin/admin.html");
+        header("Location:admin/admin.php");
         break;
       
       case '2':
-        header("Location:cliente/cliente.html");
+        header("Location:cliente/cliente.php");
         break;
     }
     
@@ -55,7 +56,7 @@ background-size: cover">
             <input type="password" class="form-control" placeholder="Ingresa tu clave" name="password" />
           </div>
           <div class="form-group">
-            <a href="signup.html">Registrate</a>
+            <a style="color: white;" class="signup" href="signup.html">Registrate</a>
           </div>
 
           <button type="submit" name="btn_login" class="btn btn-primary"><i class="fas fa-sign-in-alt"></i> Ingresar </button>
