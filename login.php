@@ -13,6 +13,7 @@
   //var_dump($result2);
   if ($result->rowCount()>=1) {
     $_SESSION['ingreso']='Hello';
+    $nombre=$result2[0]['nombre'];
     switch ($result2[0]['rol_id_rol']) {
       case '1':
         header("Location:admin/admin.php");

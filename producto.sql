@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-03-2023 a las 23:53:12
+-- Tiempo de generación: 31-03-2023 a las 23:09:29
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -24,13 +24,15 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `envio`
+-- Estructura de tabla para la tabla `pedido`
 --
 
-CREATE TABLE `envio` (
-  `id_envio` int(11) NOT NULL,
+CREATE TABLE `pedido` (
+  `id_pedido` int(11) NOT NULL,
   `direccion` varchar(45) DEFAULT NULL,
-  `fecha` date DEFAULT NULL
+  `fecha` date DEFAULT NULL,
+  `usuario_id_usuario` int(11) NOT NULL,
+  `producto_id_producto` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -44,8 +46,7 @@ CREATE TABLE `producto` (
   `nombre` varchar(45) DEFAULT NULL,
   `cantidad` varchar(45) DEFAULT NULL,
   `imagen` longblob DEFAULT NULL,
-  `usuario_id_usuario` int(11) NOT NULL,
-  `envio_id_envio` int(11) NOT NULL
+  `usuario_id_usuario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -88,17 +89,20 @@ CREATE TABLE `usuario` (
 
 INSERT INTO `usuario` (`id_usuario`, `nombre`, `apellido`, `correo`, `password`, `rol_id_rol`) VALUES
 (1, 'santiago', 'caicedo', 'santi123@gmail.com', '12345', 1),
-(2, 'daniela', 'riaño', 'daniela78945@gmail.com', '78945', 2);
+(2, 'daniela', 'riaño', 'daniela78945@gmail.com', '78945', 1),
+(3, 'sandra', 'guzman', 'sg@gmail.com', '963852', 2),
+(4, 'prueba', 'prueba', 'prueba@gmail.com', 'prueba', 2),
+(5, 'prueba2', 'prueba2', 'prueba2@gmail.com', 'prueba2', 2);
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `envio`
+-- Indices de la tabla `pedido`
 --
-ALTER TABLE `envio`
-  ADD PRIMARY KEY (`id_envio`);
+ALTER TABLE `pedido`
+  ADD PRIMARY KEY (`id_pedido`);
 
 --
 -- Indices de la tabla `producto`
@@ -123,10 +127,10 @@ ALTER TABLE `usuario`
 --
 
 --
--- AUTO_INCREMENT de la tabla `envio`
+-- AUTO_INCREMENT de la tabla `pedido`
 --
-ALTER TABLE `envio`
-  MODIFY `id_envio` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `pedido`
+  MODIFY `id_pedido` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
@@ -144,7 +148,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -1,11 +1,10 @@
 <?php
-include_once("../conexion.php");
-$nombre = 'santiago';
-$apellido = 'caicedo';
-$sentencia = $pdo->prepare("SELECT * FROM usuario u inner join rol r on u.rol_id_rol=r.id_rol");
-$sentencia->execute();
-$personas = $sentencia->fetchAll(PDO::FETCH_OBJ);
+    include_once("../conexion.php");
+    $sentencia = $pdo->prepare("SELECT * FROM usuario u inner join rol r on u.rol_id_rol=r.id_rol");
+    $sentencia->execute();
+    $personas = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,7 +14,7 @@ $personas = $sentencia->fetchAll(PDO::FETCH_OBJ);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/user.css">
-    <title>Document</title>
+    <title>Dashboard</title>
 </head>
 
 <body>
@@ -27,8 +26,8 @@ $personas = $sentencia->fetchAll(PDO::FETCH_OBJ);
             </section>
             <ul>
                 <li><a href="admin.php"><i class="fas fa-users"></i> Agregar</a></li>
-                <li><a href="#"><i class="fas fa-shopping-cart"></i> Productos</a></li>
-                <li><a href="#"><i class="fas fa-paper-plane"></i> Envios</a></li>
+                <li><a href="productos/producto.php"><i class="fas fa-shopping-cart"></i> Productos</a></li>
+                <li><a href="#"><i class="fas fa-paper-plane"></i> Pedidos</a></li>
             </ul>
         </div>
         <div class="main_content">
@@ -69,9 +68,9 @@ $personas = $sentencia->fetchAll(PDO::FETCH_OBJ);
                             <td><?php echo $persona->correo ?></td>
                             <td><?php echo $persona->password ?></td>
                             <td><?php echo $persona->nombre_rol ?></td>
-                            <td><a href="<?php echo "editar.php?idcliente=" . $persona->idcliente?>"><button
+                            <td><a href="<?php echo "usuarios/editar.php?id_usuario=" . $persona->id_usuario?>"><button
                                         class="btn btn-primary"><i class="fas fa-edit"></i></button></a></td>
-                            <td><a href="#"><button class="btn btn-danger"><i class="fas fa-trash"></i></button></a>
+                            <td><a href="<?php echo "usuarios/eliminar.php?id_usuario=" . $persona->id_usuario?>"><button class="btn btn-danger"><i class="fas fa-trash"></i></button></a>
                             </td>
                         </tr>
                         <?php } ?>
