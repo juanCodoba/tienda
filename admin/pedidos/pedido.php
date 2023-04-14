@@ -1,8 +1,8 @@
 <?php
     include_once("../../conexion.php");
-    $sentencia = $pdo->prepare("SELECT * FROM producto");
+    $sentencia = $pdo->prepare("SELECT * FROM pedido");
     $sentencia->execute();
-    $productos = $sentencia->fetchAll(PDO::FETCH_OBJ);
+    $pedidos = $sentencia->fetchAll(PDO::FETCH_OBJ);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -25,8 +25,8 @@
             </section>
             <ul>
                 <li><a href="../admin.php"><i class="fas fa-users"></i> Agregar</a></li>
-                <li><a href="producto.php"><i class="fas fa-shopping-cart"></i> Productos</a></li>
-                <li><a href="../pedidos/pedido.php"><i class="fas fa-paper-plane"></i> Pedidos</a></li>
+                <li><a href="../productos/producto.php"><i class="fas fa-shopping-cart"></i> Productos</a></li>
+                <li><a href="pedido.php"><i class="fas fa-paper-plane"></i> Pedidos</a></li>
             </ul>
         </div>
         <div class="main_content">
@@ -48,24 +48,26 @@
                                     data-target="#exampleModal"><i class="fas fa-plus"></i></button></td>
                         </tr>
                         <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Cantidad</th>
-                            <th>Imagen</th>
+                            <th>ID Pedido</th>
+                            <th>Direccion</th>
+                            <th>Fecha</th>
+                            <th>Usuario</th>
+                            <th>Producto</th>
                             <th colspan="2">Acciones</th>
 
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach($productos as $producto){ ?>
+                        <?php foreach($pedidos as $pedido){ ?>
                         <tr>
-                            <td><?php echo $producto->id_producto ?></td>
-                            <td><?php echo $producto->nombre ?></td>
-                            <td><?php echo $producto->cantidad ?></td>
-                            <td><img height="100px" src="data:image/jpg;base64,<?php echo base64_encode($producto->imagen); ?>"/></td>
-                            <td><a href="<?php echo "editar.php?id_producto=" . $producto->id_producto?>"><button
+                            <td><?php echo $pedido->id_pedido ?></td>
+                            <td><?php echo $pedido->direccion ?></td>
+                            <td><?php echo $pedido->fecha ?></td>
+                            <td><?php echo $pedido->usuario_id_usuario ?></td>
+                            <td><?php echo $pedido->producto_id_producto ?></td>
+                            <td><a href="<?php echo "editar.php?id_pedidio=" . $pedido->id_pedido?>"><button
                                         class="btn btn-primary"><i class="fas fa-edit"></i></button></a></td>
-                            <td><a href="<?php echo "eliminar.php?id_producto=" . $producto->id_producto?>"><button
+                            <td><a href="<?php echo "eliminar.php?id_pedido=" . $pedido->id_pedido?>"><button
                                         class="btn btn-danger"><i class="fas fa-trash"></i></button></a>
                             </td>
                         </tr>
@@ -90,19 +92,24 @@
                         <form action="crear.php" method="post" enctype="multipart/form-data">
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Nombre</label>
-                                <input type="text" class="form-control" required="" name="nombre"
-                                    id="exampleInputEmail1" placeholder="Ingresa el nombre del producto">
+                                <label for="exampleInputEmail1">Direccion</label>
+                                <input type="text" class="form-control" required="" name="direccion"
+                                    id="exampleInputEmail1" placeholder="Ingresa la direccion">
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Cantidad</label>
-                                <input type="number" class="form-control" required="" name="cantidad"
-                                    id="exampleInputEmail1" placeholder="Ingresa la cantidad">
+                                <label for="exampleInputEmail1">Fecha</label>
+                                <input type="date" class="form-control" required="" name="fecha"
+                                    id="exampleInputEmail1" placeholder="Ingresa la fecha">
                             </div>
                             <div class="form-group">
-                                <label>Imagen</label>
-                                <input type="file" class="form-control" required=""
-                                    name="imagen" placeholder="Adjunta la imagen">
+                                <label for="exampleInputEmail1">Usuario</label>
+                                <input type="number" class="form-control" required="" name="usuario"
+                                    id="exampleInputEmail1" placeholder="Ingresa el ID del usuario">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Producto</label>
+                                <input type="number" class="form-control" required="" name="producto"
+                                    id="exampleInputEmail1" placeholder="Ingresa el ID del producto">
                             </div>
 
                             <button type="submit" class="btn btn-success btn-lg btn-block">Crear</button>

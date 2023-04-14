@@ -27,7 +27,7 @@
             <ul>
                 <li><a href="admin.php"><i class="fas fa-users"></i> Agregar</a></li>
                 <li><a href="productos/producto.php"><i class="fas fa-shopping-cart"></i> Productos</a></li>
-                <li><a href="#"><i class="fas fa-paper-plane"></i> Pedidos</a></li>
+                <li><a href="pedidos/pedido.php"><i class="fas fa-paper-plane"></i> Pedidos</a></li>
             </ul>
         </div>
         <div class="main_content">
