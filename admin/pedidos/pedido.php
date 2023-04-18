@@ -65,7 +65,7 @@
                             <td><?php echo $pedido->fecha ?></td>
                             <td><?php echo $pedido->usuario_id_usuario ?></td>
                             <td><?php echo $pedido->producto_id_producto ?></td>
-                            <td><a href="<?php echo "editar.php?id_pedidio=" . $pedido->id_pedido?>"><button
+                            <td><a href="<?php echo "editar.php?id_pedido=" . $pedido->id_pedido?>"><button
                                         class="btn btn-primary"><i class="fas fa-edit"></i></button></a></td>
                             <td><a href="<?php echo "eliminar.php?id_pedido=" . $pedido->id_pedido?>"><button
                                         class="btn btn-danger"><i class="fas fa-trash"></i></button></a>
