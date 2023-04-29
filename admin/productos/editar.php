@@ -45,6 +45,11 @@ if($producto === FALSE){
                             value="<?php echo $producto->nombre?>">
                     </div>
                     <div class="form-group">
+                        <label for="exampleInputEmail1">Tipo</label>
+                        <input type="text" class="form-control" name="tipo" id="exampleInputEmail1"
+                            value="<?php echo $producto->tipo?>">
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputEmail1">Cantidad</label>
                         <input type="number" class="form-control" required="" name="cantidad" id="exampleInputEmail1"
                             value="<?php echo $producto->cantidad?>">

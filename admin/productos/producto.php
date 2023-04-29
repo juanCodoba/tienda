@@ -50,10 +50,10 @@
                         <tr>
                             <th>ID</th>
                             <th>Nombre</th>
+                            <th>Tipo</th>
                             <th>Cantidad</th>
                             <th>Imagen</th>
                             <th colspan="2">Acciones</th>
-
                         </tr>
                     </thead>
                     <tbody>
@@ -61,6 +61,7 @@
                         <tr>
                             <td><?php echo $producto->id_producto ?></td>
                             <td><?php echo $producto->nombre ?></td>
+                            <td><?php echo $producto->tipo ?></td>
                             <td><?php echo $producto->cantidad ?></td>
                             <td><img height="100px" src="data:image/jpg;base64,<?php echo base64_encode($producto->imagen); ?>"/></td>
                             <td><a href="<?php echo "editar.php?id_producto=" . $producto->id_producto?>"><button
@@ -93,6 +94,11 @@
                                 <label for="exampleInputEmail1">Nombre</label>
                                 <input type="text" class="form-control" required="" name="nombre"
                                     id="exampleInputEmail1" placeholder="Ingresa el nombre del producto">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Tipo</label>
+                                <input type="text" class="form-control" required="" name="tipo"
+                                    id="exampleInputEmail1" placeholder="Ingresa el tipo de producto">
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Cantidad</label>

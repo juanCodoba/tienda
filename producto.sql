@@ -51,7 +51,7 @@ INSERT INTO `pedido` (`id_pedido`, `direccion`, `fecha`, `usuario_id_usuario`, `
 CREATE TABLE `producto` (
   `id_producto` int(11) NOT NULL,
   `nombre` varchar(45) DEFAULT NULL,
-  `Tipo` varchar(45) NOT NULL,
+  `tipo` varchar(45) NOT NULL,
   `cantidad` varchar(45) DEFAULT NULL,
   `imagen` longblob DEFAULT NULL,
   `usuario_id_usuario` int(11) NOT NULL
